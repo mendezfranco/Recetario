@@ -1,10 +1,11 @@
 <h1>Recetas de Ma</h1>
-<div class="card w-50" *ngFor="let item of recetas">
+<div class="card-columns">
+<div class="card w-50" *ngFor="let item of recetas; let i = index">
   <div class="card-body">
     <h5 class="card-title">{{ item.nombre }}</h5>
     <hr>
-    <p class="card-text">{{ item.ingredientes }}</p>
-    <p class="card-text">{{ item.pasos }}</p>
-    <a href="#" class="btn btn-primary">Button</a>
+    <p class="card-text">{{ item.descripcion }}</p>
+    <button type="button" class="btn btn-primary btn-block" (click)="verReceta(i)">Ver más</button>
   </div>
+</div>
 </div>
