@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Type } from '@angular/core';
 
 @Injectable()
 export class RecetasService {
@@ -7,13 +7,13 @@ export class RecetasService {
         {
             nombre: "Pan Dulce",
             descripcion: "Receta de pan dulce de cocineros argentinos",
-            ingredientes: "1 huevo, 200gr harina",
+            ingredientes: ["1 huevo", "200gr harina"],
             pasos: "Batir, batir y batir y asdasd"
         },
         {
             nombre: "Galletas Navideñas",
             descripcion: "Galletitas para la mesa dulce de nochebuena",
-            ingredientes: "5 huevo, 400gr harina",
+            ingredientes: ["5 huevo", "400gr harina"],
             pasos: "Batir, mezclar y batir"
         }
     ];
@@ -33,6 +33,6 @@ export class RecetasService {
 export interface Recetas {
     nombre: string,
     descripcion: string,
-    ingredientes: string,
+    ingredientes: Array<String>,
     pasos: string
 }

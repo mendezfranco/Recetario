@@ -2,7 +2,7 @@
   <div class="card-header">{{recetaBuscada.nombre}}</div>
   <div class="card-body text-dark">
     <h5 class="card-title">Ingredientes</h5>
-    <p class="card-text">{{recetaBuscada.ingredientes}}</p>
+    <p class="card-text" *ngFor="let item of recetaBuscada.ingredientes">{{item}}</p>
     <h5 class="card-title">Procedimiento</h5>
     <p class="card-text">{{recetaBuscada.pasos}}</p>
   </div>

@@ -1,3 +1,30 @@
 <p class="animated fadeIn fast">
-  newreceta works!
+  
 </p>
+
+<h3 class="animated fadeIn fast"  style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Agregar Nueva Receta</h3>
+<form class="animated fadeIn fast" autocomplete="off" [formGroup]="formReceta" (ngSubmit)="guardarReceta()">
+  <div class="form-group">
+    <label for="formGroupExampleInput">Nombre</label>
+    <input type="text" class="form-control" id="nombreForm" placeholder="Example input placeholder">
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput2">Descripción</label>
+    <input type="text" class="form-control" id="descripcionForm" placeholder="Datos de la Receta">
+  </div>
+  <div class="form-group" formArrayName="ingredientes">
+    <label for="formGroupExampleInput2">Ingredientes</label>
+    <input type="text" class="form-control" id="ingredientesForm" placeholder="Ingrediente 1">
+    <div>
+      <div *ngFor="let nuevoIngrediente of arregloIngredientes.controls; let i = index">
+        <input type="text" class="form-control mt-2" placeholder="Ingrediente {{ i+2 }}">
+      </div>
+      <button type="button" class="btn btn-primary mt-2" (click)="agregarIngrediente()">Nuevo Ingrediente</button>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput2">Pasos</label>
+    <input type="text" class="form-control" id="pasosForm" placeholder="Los pasos necesarios para completar la receta">
+  </div>
+</form>
+<button type="button" class="btn btn-primary">Agregar Receta</button>

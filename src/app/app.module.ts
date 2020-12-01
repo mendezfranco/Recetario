@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // Rutas
 import { APP_ROUTING } from './app.routes';
@@ -23,7 +24,8 @@ import { NewRecetaComponent } from './components/newreceta/newreceta.component';
   ],
   imports: [
     BrowserModule,
-    APP_ROUTING
+    APP_ROUTING,
+    ReactiveFormsModule
   ],
   providers: [
     RecetasService
