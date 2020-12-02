@@ -23,23 +23,32 @@ export class NewRecetaComponent implements OnInit {
     return this.formReceta.get('ingredientes') as FormArray;
   }
 
+  get arregloPasos(): FormArray{
+    return this.formReceta.get('pasos') as FormArray;
+  }
+
   crearForm() {
     this.formReceta = this.formBuilder.group(
       {
         nombre: [''],
         descripcion: [''],
         ingredientes: this.formBuilder.array([]),
-        pasos: ['']
+        pasos: this.formBuilder.array([]),
+        adicionales: ['']
       }
     );
   }
 
   guardarReceta(){
-    
+    console.log(this.formReceta);
   }
 
   agregarIngrediente(){
-    this.arregloIngredientes.push(this.formBuilder.control('Nuevo Ingrediente'));
+    this.arregloIngredientes.push(this.formBuilder.control(''));
+  }
+
+  agregarPaso(){
+    this.arregloPasos.push(this.formBuilder.control(''));
   }
 
 }

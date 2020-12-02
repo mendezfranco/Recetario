@@ -6,25 +6,37 @@
 <form class="animated fadeIn fast" autocomplete="off" [formGroup]="formReceta" (ngSubmit)="guardarReceta()">
   <div class="form-group">
     <label for="formGroupExampleInput">Nombre</label>
-    <input type="text" class="form-control" id="nombreForm" placeholder="Example input placeholder">
+    <input type="text" class="form-control" id="nombreForm" placeholder="Nombre de la nueva Receta"
+      formControlName="nombre">
   </div>
   <div class="form-group">
     <label for="formGroupExampleInput2">Descripción</label>
-    <input type="text" class="form-control" id="descripcionForm" placeholder="Datos de la Receta">
+    <input type="text" class="form-control" id="descripcionForm" placeholder="Datos de la Receta"
+      formControlName="descripcion">
   </div>
   <div class="form-group" formArrayName="ingredientes">
-    <label for="formGroupExampleInput2">Ingredientes</label>
-    <input type="text" class="form-control" id="ingredientesForm" placeholder="Ingrediente 1">
+    <label>Ingredientes</label>
     <div>
       <div *ngFor="let nuevoIngrediente of arregloIngredientes.controls; let i = index">
-        <input type="text" class="form-control mt-2" placeholder="Ingrediente {{ i+2 }}">
+        <input [formControl]="arregloIngredientes.controls[i]" type="text" class="form-control mt-2" placeholder="Ingrediente {{ i+1 }}">
       </div>
       <button type="button" class="btn btn-primary mt-2" (click)="agregarIngrediente()">Nuevo Ingrediente</button>
     </div>
   </div>
+  <div class="form-group" formArrayName="pasos">
+    <label>Pasos</label>
+    <div>
+      <div *ngFor="let nuevoPaso of arregloPasos.controls; let i = index">
+        <input [formControl]="arregloPasos.controls[i]" type="text" class="form-control mt-2" placeholder="Paso {{ i+1 }}">
+      </div>
+      <button type="button" class="btn btn-primary mt-2" (click)="agregarPaso()">Nuevo Paso</button>
+    </div>
+  </div>
   <div class="form-group">
-    <label for="formGroupExampleInput2">Pasos</label>
-    <input type="text" class="form-control" id="pasosForm" placeholder="Los pasos necesarios para completar la receta">
+    <label>Adicionales</label>
+    <input type="text" class="form-control" id="adicionalesForm" placeholder="Datos Adicionales (links a videos de YouTube, Facebook, etc...)"
+      formControlName="adicionales">
   </div>
 </form>
-<button type="button" class="btn btn-primary">Agregar Receta</button>
+<button type="button" class="btn" style="background-color: green; color: beige; border-color: black;" (click)="guardarReceta()">Agregar Receta</button>
+<pre>{{formReceta.value | json}}</pre>

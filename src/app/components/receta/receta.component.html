@@ -2,8 +2,13 @@
   <div class="card-header">{{recetaBuscada.nombre}}</div>
   <div class="card-body text-dark">
     <h5 class="card-title">Ingredientes</h5>
-    <p class="card-text" *ngFor="let item of recetaBuscada.ingredientes">{{item}}</p>
+    <p class="card-text" *ngFor="let ing of recetaBuscada.ingredientes">{{ing}}</p>
     <h5 class="card-title">Procedimiento</h5>
-    <p class="card-text">{{recetaBuscada.pasos}}</p>
+    <p class="card-text" *ngFor="let paso of recetaBuscada.pasos">{{paso}}</p>
+    <div *ngIf="recetaBuscada.adicionales.length != 0">
+      <hr>
+      <h5 class="card-title" style="color: gray;"><small>Datos Adicionales</small></h5>
+      <p class="card-text" *ngFor="let adicional of recetaBuscada.adicionales"><small>{{adicional}}</small></p>
+    </div>
   </div>
 </div>
